@@ -1,0 +1,19 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app-layout {
+    height: 100%;
+}
+.app-header {
+    background-color: #ffd6d6 !important;
+    text-align: center;
+}
+.app-sidebar {
+    width: 150px;
+}
+.app-content {}
