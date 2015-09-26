@@ -13,6 +13,19 @@ body {
     background-color: #ffd6d6 !important;
     text-align: center;
 }
+.app-menu {}
+.app-menu ul {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    margin: 1em 0;
+    padding: 0;
+}
+.app-menu li { display: inline; }
+.app-menu a {
+    padding: 5px 20px;
+    text-decoration: none;
+}
+
 .app-sidebar {
     width: 150px;
 }

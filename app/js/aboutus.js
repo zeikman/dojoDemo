@@ -1,5 +1,5 @@
 define([
-    'dojo/text!../htmlTemplate/dashboard.html',
+    'dojo/text!../htmlTemplate/aboutus.html',
 
     'dojo/on',
     'dojo/parser',
