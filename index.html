@@ -12,24 +12,42 @@
         // it's just easier to read this approach with a larger configuration.
         var dojoConfig = {
             async: true,
+            // For loading dojo locally
+            baseUrl: '.',
             // This code registers the correct location of the "demo"
             // package so we can load Dojo from the CDN whilst still
             // being able to load local modules
+            has: { // Debug/Firebug Lite Configuration
+                'dojo-firebug': true,
+                'dojo-debug-messages': true
+            },
+            waitSeconds: 5, // Timeout after 5 seconds
+            cacheBust: true, // Get "fresh" resources
+            map: {
+                // Instead of having to type "dojo/domReady!", we just want "ready!" instead
+                '*': {
+                    ready: 'dojo/domReady'
+                }
+            },
             packages: [
-                {
-                    name: "dojoDemo",
+                /*{
+                    name: 'dojoDemo',
                     location: location.pathname.replace(/\/[^/]*$/, '') + '/dojoDemo/'
                 },
                 {
-                    name: "app",
+                    name: app,
                     location: location.pathname.replace(/\/[^/]*$/, '') + '/app'
-                }
+                },*/
+                // For loading dojo and application locally
+                'dojo', 'dijit', 'dojox', 'util', 'app'
             ]
         };
     </script>
-    <!-- load Dojo -->
-    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
-            data-dojo-config="async: true"></script>
+    <!-- load Dojo from CDN -->
+    <!--script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script-->
+    <!-- load Dojo locally -->
+    <script src="dojo/dojo.js"></script>
 
     <script>
         /*
@@ -63,7 +81,7 @@
         require([
             'dojo/dom',
             'dojo/fx',
-            'dojo/domReady!'
+            'ready!'
         ], function (dom, fx) {
             // The piece we had before...
             var greeting = dom.byId('greeting');
