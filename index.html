@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Hello Dojo!</title>
+</head>
+<body>
+    <h1 id="greeting">Hello</h1>
+    <script>
+        // Instead of using data-dojo-config, we're creating a dojoConfig
+        // object *before* we load dojo.js; they're functionally identical,
+        // it's just easier to read this approach with a larger configuration.
+        var dojoConfig = {
+            async: true,
+            // This code registers the correct location of the "demo"
+            // package so we can load Dojo from the CDN whilst still
+            // being able to load local modules
+            packages: [
+                {
+                    name: "dojoDemo",
+                    location: location.pathname.replace(/\/[^/]*$/, '') + '/dojoDemo/'
+                },
+                {
+                    name: "app",
+                    location: location.pathname.replace(/\/[^/]*$/, '') + '/app'
+                }
+            ]
+        };
+    </script>
+    <!-- load Dojo -->
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        /*
+         * Initial example
+         */
+        /*require([
+            'dojo/dom',
+            'dojo/dom-construct'
+        ], function (dom, domConstruct) {
+            var greetingNode = dom.byId('greeting');
+            domConstruct.place('<em> Dojo!</em>', greetingNode);
+        });*/
+
+        /*
+         * Require AMD Modules (Defining AMD Modules)
+         */
+        /*require([
+            'app/example'
+        ], function(example) {
+            example.setText('greeting', 'Hello Dojo!');
+
+            setTimeout(function() {
+                example.restoreText('greeting');
+            }, 3000);
+        });*/
+
+        /*
+         * - Waiting for the DOM
+         * - Adding Visual Effects
+         */
+        require([
+            'dojo/dom',
+            'dojo/fx',
+            'dojo/domReady!'
+        ], function (dom, fx) {
+            // The piece we had before...
+            var greeting = dom.byId('greeting');
+            greeting.innerHTML += ' from Dojo!';
+
+            // ...but now, with an animation!
+            fx.slideTo({
+                node: greeting,
+                top: 100,
+                left: 200
+            }).play();
+        });
+    </script>
+</body>
+</html>
