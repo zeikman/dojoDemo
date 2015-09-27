@@ -2,10 +2,14 @@
      data-dojo-type="dijit/layout/BorderContainer"
      data-dojo-props="design:'headline', gutters:true">
 
-    <div id="appHeader" class="app-header" 
+    <div id="appHeader" class="app-header flex-row" 
          data-dojo-type="dijit/layout/ContentPane"
          data-dojo-props="region:'top'">
-        <h1>Application Name</h1>
+        <h1 class="flex-row">Application Name</h1>
+        <span class="flex-spacer"></span>
+        <i id="user" title="User" class="fa fa-user fa-2x"></i>
+        <i id="settings" title="Settings" class="fa fa-cog fa-2x M-left-5"></i>
+        <i id="logout" title="Logout" class="fa fa-power-off fa-2x M-left-5"></i>
     </div>
 
     <div id="appMenu" class="app-menu" 
@@ -13,7 +17,8 @@
          data-dojo-props="region:'top'">
         <ul id="menu">
             <li><a href="dashboard.html">Home</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="aboutus.html">About Me</a></li>
+            <li><a href="dgrid.html">Dgrid</a></li>
         </ul>
     </div>
 
@@ -21,20 +26,24 @@
          data-dojo-type="dijit/layout/AccordionContainer"
          data-dojo-props="minSize:20, region:'leading'">
 
-        <div title="Menu 1"
+        <div title="Menu 1" selected="true"
              data-dojo-type="dijit/layout/ContentPane">
+            Menu 1 content
         </div>
 
         <div title="Menu 2"
              data-dojo-type="dijit/layout/ContentPane">
+            Menu 2 content
         </div>
 
-        <div title="Menu 3" selected="true"
+        <div title="Menu 3"
              data-dojo-type="dijit/layout/ContentPane">
+            Menu 3 content
         </div>
 
         <div title="Menu 4"
              data-dojo-type="dijit/layout/ContentPane">
+            Menu 4 content
         </div>
 
     </div>

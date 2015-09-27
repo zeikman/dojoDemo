@@ -8,8 +8,6 @@ define([
 
     'dijit/registry',
 
-    'dijit/layout/AccordionContainer',
-    'dijit/layout/BorderContainer',
     'dijit/layout/ContentPane',
     'ready!'
 ], function(

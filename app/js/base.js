@@ -38,7 +38,7 @@ define([
         registerModuleEvent: function() {
             var func = {
                 onAppHeaderClick: function() {
-                    window.alert('Hello, I am header!');
+                    window.alert('Hello, I am header !');
                 },
                 onMenuClick: function(event) {
                     // prevent loading a new page - we're doing a single page app
@@ -60,6 +60,18 @@ define([
                         // initialize module
                         requireModule.init();
                     });
+                },
+                user: function(event) {
+                    event.stopPropagation();
+                    window.alert('User');
+                },
+                settings: function(event) {
+                    event.stopPropagation();
+                    window.alert('Settings');
+                },
+                logout: function(event) {
+                    event.stopPropagation();
+                    window.alert('Logout');
                 }
             };
             var prefix = '!',
@@ -68,6 +80,9 @@ define([
 
             on(registry.byId('appHeader'), 'click', func.onAppHeaderClick);
             on(dom.byId('menu'), 'a:click', func.onMenuClick);
+            on(dom.byId('user'), 'click', func.user);
+            on(dom.byId('settings'), 'click', func.settings);
+            on(dom.byId('logout'), 'click', func.logout);
 
             topic.subscribe('/dojo/hashchange', function(newHash) {
                 // parse the plain hash value, e.g. "index" from "!index"

@@ -6,27 +6,55 @@ body {
     padding: 0;
 }
 
-.app-layout {
-    height: 100%;
+.flex-row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
+.flex-spacer { flex: 1 0 auto; }
+
+.small-caps {   font-variant: small-caps; }
+.M-left-5 { margin-left: 5px; }
+.hidden { display: none; }
+
+.app-layout { height: 100%; }
 .app-header {
     background-color: #ffd6d6 !important;
-    text-align: center;
+    _text-align: center;
 }
+.app-header h1 { margin: 0; }
 .app-menu {}
 .app-menu ul {
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    margin: 1em 0;
+    margin: 0;
     padding: 0;
 }
 .app-menu li { display: inline; }
 .app-menu a {
-    padding: 5px 20px;
+    padding: 5px 10px;
     text-decoration: none;
 }
-
-.app-sidebar {
-    width: 150px;
-}
+.app-sidebar { width: 150px; }
 .app-content {}
+
+#user,
+#settings,
+#logout { cursor: pointer; }
+
+.dgrid-no-data,
+.dgrid-loading {
+    color: #aaa;
+    font-size: 3em;
+    padding: 3em;
+    text-align: center;
+}
+.errorMessage {
+    height: 1em;
+    margin: 1em 0;
+    padding: 1em;
+
+    background-color: #fcc;
+    color: #900;
+}

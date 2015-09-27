@@ -2,10 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Tutorial: Hello Dojo!</title>
+    <title>Tutorial: Dojo Web Application</title>
 
     <!-- Require dojo Tundra theme -->
+    <link rel="stylesheet" href="dojo/resources/dojo.css">
     <link rel="stylesheet" href="dijit/themes/tundra/tundra.css">
+
+    <!-- Require dgrid CSS and theme -->
+    <link rel="stylesheet" href="dgrid/css/dgrid.css">
+    <link rel="stylesheet" href="dgrid/css/skins/tundra.css">
+
+    <!-- Require Font-Awesome CSS -->
+    <link rel="stylesheet" href="Font-Awesome/css/font-awesome.min.css">
 
     <!-- Require application CSS -->
     <link rel="stylesheet" href="app/css/app.css">
@@ -25,7 +33,13 @@
                 // Instead of having to type "dojo/domReady!", we just want "ready!" instead
                 '*': { ready: 'dojo/domReady' }
             },
-            packages: [ 'dojo', 'dijit', 'dojox', 'util', 'app' ]
+            packages: [
+                'dojo', 'dijit', 'dojox', 'util', 'dgrid', 'app',
+                {
+                    name: 'dstore',
+                    location: 'dstore-1.1.0'
+                }
+            ]
         };
     </script>
 
