@@ -36,6 +36,7 @@ body {
     padding: 5px 10px;
     text-decoration: none;
 }
+.app-menu a.highlight { color: #ff0000; }
 .app-sidebar { width: 150px; }
 .app-content {}
 

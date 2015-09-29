@@ -4,25 +4,26 @@ define([
     'dojo/hash',
     'dojo/on',
     'dojo/parser',
+    'dojo/query',
     'dojo/topic',
 
     'dojo/dom',
     'dojo/dom-attr',
+    'dojo/dom-class',
     'dojo/dom-construct',
 
     'dijit/registry',
 
     'app/js/dashboard',
 
-    'dojo/query',
     'dijit/layout/AccordionContainer',
     'dijit/layout/BorderContainer',
     'dijit/layout/ContentPane',
     'ready!'
 ], function(
     template,
-    hash, on, parser, topic,
-    dom, domAttr, domConstruct,
+    hash, on, parser, query, topic,
+    dom, domAttr, domClass, domConstruct,
     registry,
     dashboard
 ) {
@@ -53,12 +54,25 @@ define([
                         requireModule = 'dashboard';
                     }
 
+                    func.highlightMenu(requireModule);
                     hash(prefix+requireModule);
 
                     // get the page content using dojo require
                     require(['app/js/'+requireModule], function(requireModule) {
                         // initialize module
                         requireModule.init();
+                    });
+                },
+                highlightMenu: function(highlightModule) {
+                    query('#menu a').forEach(function(link) {
+                        var menuModule = link.href.split('/').pop().split('.')[0];
+
+                        if (menuModule == highlightModule) {
+                            domClass.add(link, 'highlight');
+                        }
+                        else {
+                            domClass.remove(link, 'highlight');
+                        }
                     });
                 },
                 user: function(event) {
@@ -91,13 +105,17 @@ define([
 
             if (location.hash.length == 0) {
                 // set the default page hash
-                hash(prefix+(location.hash || lastPage), true);
+                var hashModule = prefix+(location.hash || lastPage);
+
+                func.highlightMenu(hashModule);
+                hash(hashModule, true);
             }
             else {
                 // load respective {hash} module
-                var hashModule = location.hash.slice(0);
+                var hashModule = location.hash.slice(0).substr('#'.length+prefix.length);
 
-                func._loadModule(hashModule.substr('#'.length+prefix.length), 'nohash');
+                func.highlightMenu(hashModule);
+                func._loadModule(hashModule, 'nohash');
             }
         }
     };
