@@ -1,0 +1,55 @@
+<div data-dojo-type="dijit/layout/BorderContainer"
+     data-dojo-props="design:'headline', gutters:false">
+    <div style="height: 40%;" tabStrip="true"
+         data-dojo-type="dijit/layout/TabContainer"
+         data-dojo-props="region:'top'">
+        <div title="Main tab 1"
+             data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="selected:true">
+            Content 1
+        </div>
+        <div title="Main tab 2"
+             data-dojo-type="dijit/layout/ContentPane">
+            Content 2
+        </div>
+        <div title="Main tab 3 (closable)"
+             data-dojo-type="dijit/layout/ContentPane" 
+             data-dojo-props="closable:true">
+            Content 3 (Once close, it can not be open again)
+        </div>
+    </div>
+    <div style="margin-top: 5px;" tabStrip="true"
+         data-dojo-type="dijit/layout/TabContainer"
+         data-dojo-props="region:'center'">
+        <div title="Report Category 1" nested="true"
+             data-dojo-type="dijit/layout/TabContainer">
+            <div title="Report 1" selected="true"
+                 data-dojo-type="dijit/layout/ContentPane">
+                Lorem ipsum and all around...
+            </div>
+            <div title="Report 2"
+                 data-dojo-type="dijit/layout/ContentPane">
+                Lorem ipsum and all around - second...
+            </div>
+            <div title="Report 3"
+                 data-dojo-type="dijit/layout/ContentPane">
+                Lorem ipsum and all around - last...
+            </div>
+        </div>
+        <div title="Report Category 2" nested="true"
+             data-dojo-type="dijit/layout/TabContainer">
+            <div title="Report 4" selected="true"
+                 data-dojo-type="dijit/layout/ContentPane">
+                Lorem ipsum and all around...
+            </div>
+            <div title="Report 5"
+                 data-dojo-type="dijit/layout/ContentPane">
+                Lorem ipsum and all around - second...
+            </div>
+            <div title="Report 6"
+                 data-dojo-type="dijit/layout/ContentPane">
+                Lorem ipsum and all around - last...
+            </div>
+        </div>
+    </div>
+</div>
