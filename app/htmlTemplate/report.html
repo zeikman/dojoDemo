@@ -1,22 +1,20 @@
 <div data-dojo-type="dijit/layout/BorderContainer"
      data-dojo-props="design:'headline', gutters:false">
-    <div style="height: 40%;" tabStrip="true"
-         data-dojo-type="dijit/layout/TabContainer"
+    <div data-dojo-type="dijit/layout/ContentPane"
          data-dojo-props="region:'top'">
-        <div title="Main tab 1"
-             data-dojo-type="dijit/layout/ContentPane"
-             data-dojo-props="selected:true">
-            Content 1
+        <div id="myStackContainer" style="height: 200px;" 
+             data-dojo-type="dijit/layout/StackContainer">
+            <div title="Page 1" 
+                 data-dojo-type="dijit/layout/ContentPane">
+                Page 1 content.
+            </div>
+            <div title="Page 2" 
+                 data-dojo-type="dijit/layout/ContentPane">
+                Page 2 content.
+            </div>
         </div>
-        <div title="Main tab 2"
-             data-dojo-type="dijit/layout/ContentPane">
-            Content 2
-        </div>
-        <div title="Main tab 3 (closable)"
-             data-dojo-type="dijit/layout/ContentPane" 
-             data-dojo-props="closable:true">
-            Content 3 (Once close, it can not be open again)
-        </div>
+        <span data-dojo-type="dijit/layout/StackController"
+              data-dojo-props="containerId:'myStackContainer'"></span>
     </div>
     <div style="margin-top: 5px;" tabStrip="true"
          data-dojo-type="dijit/layout/TabContainer"

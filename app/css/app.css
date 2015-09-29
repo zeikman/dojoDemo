@@ -58,3 +58,8 @@ body {
     background-color: #fcc;
     color: #900;
 }
+
+.dijitStackContainer {
+    border: 1px solid #cccccc;
+    padding: 5px;
+}
