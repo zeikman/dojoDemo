@@ -76,15 +76,15 @@ define([
                     });
                 },
                 user: function(event) {
-                    event.stopPropagation();
+                    // event.stopPropagation();
                     window.alert('User');
                 },
                 settings: function(event) {
-                    event.stopPropagation();
+                    // event.stopPropagation();
                     window.alert('Settings');
                 },
                 logout: function(event) {
-                    event.stopPropagation();
+                    // event.stopPropagation();
                     window.alert('Logout');
                 }
             };
@@ -92,7 +92,7 @@ define([
                 // store the last requested page so we do not make multiple requests for the same content
                 lastPage = (/([^\/]+).html$/.exec(location.pathname) || [])[1] || 'dashboard';
 
-            on(registry.byId('appHeader'), 'click', func.onAppHeaderClick);
+            // on(registry.byId('appHeader'), 'click', func.onAppHeaderClick);
             on(dom.byId('menu'), 'a:click', func.onMenuClick);
             on(dom.byId('user'), 'click', func.user);
             on(dom.byId('settings'), 'click', func.settings);

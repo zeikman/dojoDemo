@@ -12,6 +12,12 @@ body {
     justify-content: flex-start;
     align-items: center;
 }
+.flex-col {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
 .flex-spacer { flex: 1 0 auto; }
 
 .small-caps {   font-variant: small-caps; }
@@ -20,23 +26,31 @@ body {
 
 .app-layout { height: 100%; }
 .app-header {
-    background-color: #ffd6d6 !important;
+    background-color: #154693 !important;
+    color: #ffffff;
+    padding: 8px !important;
     _text-align: center;
 }
 .app-header h1 { margin: 0; }
-.app-menu {}
+.app-menu {
+    border: 0 none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
 .app-menu ul {
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
     margin: 0;
     padding: 0;
 }
 .app-menu li { display: inline; }
+.app-menu a:focus { outline: none; }
 .app-menu a {
+    color: inherit;
     padding: 5px 10px;
     text-decoration: none;
 }
-.app-menu a.highlight { color: #ff0000; }
+.app-menu a.highlight { color: #4900c2; }
 .app-sidebar { width: 150px; }
 .app-content {}
 

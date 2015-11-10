@@ -1,20 +1,59 @@
 <div data-dojo-type="dijit/layout/ContentPane">
-    Table of Content
-    <ol style="list-style-type: lower-roman;">
-        <li>Home</li>
-        <li>About Me</li>
-        <li>
-            Dgrid
-            <ul style="list-style-type: disc;">
-                <li>Basic Grid</li>
-                <li>OnDemand Grid</li>
-            </ul>
-        </li>
-        <li>Report
-            <ul style="list-style-type: disc;">
-                <li>StackContainer</li>
-                <li>Nested TabContainer</li>
-            </ul>
-        </li>
-    </ol>
+    <div class="flex-row" style="align-items: flex-start;">
+        <div>
+            <h3 style="margin-top: 0;">Tree <i>(declarative)</i></h3>
+            <div data-dojo-id="tocStore" data-dojo-type="dojo/store/Memory">
+                <!-- Create store with inlined data.
+                    For larger data sets should use dojo.store.JsonRest etc. instead of dojo.store.Memory. -->
+                <script type="dojo/method">
+                    this.setData([
+                        { id: 'toc', name: 'Table of Content' },
+                            { id: 'home', name: 'Home', parent: 'toc' },
+                                { id: 'tree', name: 'Tree (declarative)', parent: 'home' },
+                                { id: 'calendar', name: 'Calendar (declarative)', parent: 'home' },
+                            { id: 'aboutme', name: 'About Me', parent: 'toc' },
+                            { id: 'dgrid', name: 'Dgrid', parent: 'toc' },
+                                { id: 'basicgrid', name: 'Basic Grid (programmatic)', parent: 'dgrid' },
+                                { id: 'ondemandgrid', name: 'OnDemand Grid (programmatic)', parent: 'dgrid' },
+                            { id: 'report', name: 'Report', parent: 'toc' },
+                                { id: 'stackcontainer', name: 'StackContainer (declarative)', parent: 'report' },
+                                { id: 'nestedtabcontainer', name: 'Nested TabContainer (declarative)', parent: 'report' }
+                    ]);
+                </script>
+
+                <script type="dojo/method" data-dojo-event="getChildren" data-dojo-args="object">
+                     // Supply a getChildren() method to store for the data model where
+                     // children objects point to their parent (aka relational model)
+                     /*
+                      * same as, return this.query({ parent: object.id });
+                      */
+                     return this.query({ parent: this.getIdentity(object) });
+                </script>
+            </div>
+
+            <!-- Create the model bridging the store and the Tree -->
+            <div data-dojo-id="tocModel" data-dojo-type="dijit/tree/ObjectStoreModel"
+                 data-dojo-props="store: tocStore, query: {id: 'toc'}"></div>
+
+            <!-- Create the tree -->
+            <div data-dojo-type="dijit/Tree" id="tocTree"
+                 data-dojo-props="model: tocModel, showRoot: true, openOnClick: false, openOnDblClick: true, autoExpand: true"></div>
+        </div>
+
+        <div class="flex-spacer"></div>
+
+        <div class="flex-col" style="align-items: flex-end;">
+            <h3 style="margin-top: 0;">Calendar <i>(declarative)</i></h3>
+            <div data-dojo-type="dijit/Calendar">
+                <script type="dojo/method" data-dojo-event="onChange" data-dojo-args="value">
+                    require(["dojo/dom", "dojo/date/locale"], function(dom, locale) {
+                        dom.byId('formatted').innerHTML = locale.format(value, {
+                            formatLength: 'full', selector:'date'
+                        });
+                    });
+                </script>
+            </div>
+            <p id="formatted"></p>
+        </div>
+    </div>
 </div>

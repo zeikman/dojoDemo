@@ -9,6 +9,9 @@ define([
     'dijit/registry',
 
     'dijit/layout/ContentPane',
+    'dijit/Tree',
+    'dijit/tree/ObjectStoreModel',
+    'dojo/store/Memory',
     'ready!'
 ], function(
     template,
