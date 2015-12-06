@@ -44,9 +44,13 @@
 
         <div class="flex-col" style="align-items: flex-end;">
             <h3 style="margin-top: 0;">Calendar <i>(declarative)</i></h3>
-            <div data-dojo-type="dijit/Calendar">
+            <div id="myCalendar" data-dojo-type="dijit/Calendar"
+                 data-dojo-props="isDisabledDate:dojo.date.locale.isWeekend">
                 <script type="dojo/method" data-dojo-event="onChange" data-dojo-args="value">
-                    require(["dojo/dom", "dojo/date/locale"], function(dom, locale) {
+                    require([
+                        'dojo/dom',
+                        'dojo/date/locale'
+                    ], function(dom, locale) {
                         dom.byId('formatted').innerHTML = locale.format(value, {
                             formatLength: 'full', selector:'date'
                         });

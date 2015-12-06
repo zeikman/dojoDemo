@@ -6,6 +6,8 @@ body {
     padding: 0;
 }
 
+a { color: #0000ee; }
+
 .flex-row {
     display: flex;
     flex-flow: row nowrap;
@@ -77,4 +79,25 @@ body {
 .dijitStackContainer {
     border: 1px solid #cccccc;
     padding: 5px;
+}
+
+#myCalendar .dijitCalendarDisabledDate {
+    background-color: #333;
+    text-decoration: none;
+}
+#myCalendar .dijitCalendarContainer {
+    margin: 25px auto;
+}
+
+.my-photo {
+    border-radius: 35px;
+    height: 200px;
+    margin: auto;
+    overflow: hidden;
+    width: 200px;
+}
+.my-photo img {
+    height: auto;
+    margin-top: -54px;
+    width: 200px;
 }

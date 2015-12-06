@@ -8,9 +8,11 @@ define([
 
     'dijit/registry',
 
+    'dijit/Calendar',
     'dijit/layout/ContentPane',
     'dijit/Tree',
     'dijit/tree/ObjectStoreModel',
+    'dojo/date',
     'dojo/store/Memory',
     'ready!'
 ], function(
