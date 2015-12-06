@@ -50,7 +50,7 @@ define([
                     func._loadModule(_module);
                 },
                 _loadModule: function(requireModule) {
-                    if (requireModule == 'index') {
+                    if (requireModule == 'demo') {
                         requireModule = 'dashboard';
                     }
 
